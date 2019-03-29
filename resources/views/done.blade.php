@@ -7,7 +7,9 @@
   <div class="row">
     <div class="col-xs-12 col-sm-6 offset-sm-3 col-md-6 offset-md-3">
 
-     <div class="my-3">
+      <div class="my-3">
+
+        <p class="my-3 text-center">DONE</p>
 
         @if (count($todos) > 0)
 
@@ -21,6 +23,7 @@
                  <div class="btn-group btn-group-sm float-right" role="group" aria-label="Basic example">
                    <a href='/todo/{{ $todo->id }}'
                       class="btn btn-secondary"><i class="fa fa-pencil"></i></a>
+
                       <button
                         class="btn btn-secondary todo-delete-btn"
                         data-id="{{ $todo->id }}"><i class="fa fa-trash"></i></button>
@@ -35,16 +38,22 @@
                    <p title="{{ $todo->created_at }}">Created: {{ $todo->created_at->diffForHumans() }}</p>
                  </div>
                </div>
+
+
             </li>
 
           @endforeach
           </ul>
 
         @else
-          <p class="lead">No ACTIVE todo tasks</p>
+          <p class="lead">No DONE todo tasks</p>
         @endif
 
       </div>
+
+      <!-- nav -->
+      @include('common.pagnitor')
+      <!-- nav ends here -->
 
     </div>
   </div>
